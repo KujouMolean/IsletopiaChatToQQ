@@ -19,7 +19,7 @@ public class Onebot extends TimerTask implements WebSocket.Listener {
     private final HttpClient httpClient = HttpClient.newBuilder()
             .build();
 
-    private WebSocket webSocket;
+    public WebSocket webSocket;
 
     public void reconnect() {
         try {

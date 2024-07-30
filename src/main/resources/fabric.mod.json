@@ -14,6 +14,9 @@
   "entrypoints": {
     "client": [
       "com.molean.isletopiachattoqq.client.IsletopiaChatToQQClient"
+    ],
+    "main": [
+      "com.molean.isletopiachattoqq.IsletopiaChatToQQ"
     ]
   },
   "mixins": ["isletopiachattoqq.mixin.json"],
