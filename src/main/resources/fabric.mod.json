@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "isletopiachattoqq",
+  "version": "${version}",
+  "name": "IsletopiaChatToQQ",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/Molean/IsletopiaChatToQQ"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/isletopiachattoqq/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.molean.isletopiachattoqq.client.IsletopiaChatToQQClient"
+    ]
+  },
+  "mixins": ["isletopiachattoqq.mixin.json"],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": "*"
+  }
+}
