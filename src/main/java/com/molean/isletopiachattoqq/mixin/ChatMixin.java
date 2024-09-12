@@ -7,7 +7,7 @@ import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ChatScreen.class)
 public class ChatMixin extends Screen {
@@ -16,10 +16,10 @@ public class ChatMixin extends Screen {
     }
 
     @Inject(method = "handleChatInput", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientPacketListener;sendChat(Ljava/lang/String;)V"), cancellable = true)
-    public void on(String string, boolean bl, CallbackInfo ci) {
+    public void on(String string, boolean bl, CallbackInfoReturnable<Boolean> cir) {
         try {
             IsletopiaChatToQQ.mod.onebot.push(string);
-            ci.cancel();
+            cir.setReturnValue(true);
         } catch (Exception e) {
             this.minecraft.player.sendSystemMessage(Component.literal("消息发动到QQ失败，可能是没登录QQ、没安装插件、没加群等原因导致。"));
             this.minecraft.player.sendSystemMessage(Component.literal("请按照教程安装，并重新登陆qq。"));
